@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:enterprise.soap.sforce.com">
+   <soapenv:Header>
+      <urn:LoginScopeHeader>
+         
+      </urn:LoginScopeHeader>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn:login>
+         <urn:username>vishwa@photon.com</urn:username>
+         <urn:password>visu@123y0bc6EBuMnewOS16LKnJnazEz</urn:password>
+      </urn:login>
+   </soapenv:Body>
+</soapenv:Envelope>
