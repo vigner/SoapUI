@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="1" total="3" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2019-12-29T06:29:54Z" name="Default suite" finished-at="2019-12-29T06:30:05Z" duration-ms="11264">
+    <groups>
+    </groups>
+    <test started-at="2019-12-29T06:29:54Z" name="Default test" finished-at="2019-12-29T06:30:05Z" duration-ms="11264">
+      <class name="basic2.CreateChangerequest">
+        <test-method is-config="true" signature="launch()[pri:0, instance:basic2.CreateChangerequest@3b2da18f]" started-at="2019-12-29T06:29:54Z" name="launch" finished-at="2019-12-29T06:29:54Z" duration-ms="690" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- launch -->
+        <test-method signature="createChange()[pri:0, instance:basic2.CreateChangerequest@3b2da18f]" started-at="2019-12-29T06:29:54Z" name="createChange" finished-at="2019-12-29T06:30:01Z" duration-ms="6780" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createChange -->
+      </class> <!-- basic2.CreateChangerequest -->
+      <class name="basic2.UpdateChangerequest">
+        <test-method signature="UpdateChangerequest()[pri:0, instance:basic2.UpdateChangerequest@5906ebcb]" started-at="2019-12-29T06:30:01Z" name="UpdateChangerequest" finished-at="2019-12-29T06:30:05Z" depends-on-methods="basic2.CreateChangerequest.createChange" duration-ms="4457" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- UpdateChangerequest -->
+      </class> <!-- basic2.UpdateChangerequest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,243 @@
+{
+	"info": {
+		"_postman_id": "b2e2637c-802f-49e2-acfb-4ece28e04020",
+		"name": "ServiceNow through variable",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "requests",
+			"item": [
+				{
+					"name": "Get all changes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0a5d630a-1ccf-41df-930a-1dba8929b7a8",
+								"exec": [
+									"var response = pm.response.json();",
+									"console.log(response);",
+									"",
+									"var count = response.result.length;",
+									"console.log(count);",
+									"",
+									"var ran =Math.floor(Math.random() * count);",
+									"",
+									"console.log(ran);",
+									"",
+									"console.log(response.result[ran].sys_id);",
+									"",
+									"",
+									"pm.globals.set(\"sys_id\", response.result[ran].sys_id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}/{{resources}}/table/{{table}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{resources}}",
+								"table",
+								"{{table}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create an Incident",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Vishwa@123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\n\t\"short_description\": \" malare malare malare\",\n\t\"category\" : \"hardware\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{server}}/{{resources}}/table/incident?sysparm_fields=number,sys_id,category",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{resources}}",
+								"table",
+								"incident"
+							],
+							"query": [
+								{
+									"key": "sysparm_fields",
+									"value": "number,sys_id,category"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change request of type emergency",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "Vishwa@123",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "admin",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}/{{resources}}/table/{{table}}?sysparm_fields=number,sys_id&type=emergency",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{resources}}",
+								"table",
+								"{{table}}"
+							],
+							"query": [
+								{
+									"key": "sysparm_fields",
+									"value": "number,sys_id"
+								},
+								{
+									"key": "type",
+									"value": "emergency"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "f06b9c4d-2b1b-46c7-b9a5-74fa1579721a",
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {",
+									"    pm.response.to.have.status(204);",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{server}}/{{resources}}/table/{{table}}/{{sys_id}}",
+							"protocol": "https",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"{{resources}}",
+								"table",
+								"{{table}}",
+								"{{sys_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "Vishwa@123",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "admin",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "c5dda3d1-48eb-4471-8da4-eabe1ccbb9d1",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "356e49da-d3c2-43f3-a669-3732f0c1227e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "8cf8dd39-9170-4e2f-80da-6fcc9e6938d6",
+			"key": "table",
+			"value": "change_request",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}

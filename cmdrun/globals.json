@@ -1,0 +1,19 @@
+{
+	"id": "de64bab4-bd47-41c8-8340-51d156c528b8",
+	"values": [
+		{
+			"key": "resources",
+			"value": "api/now",
+			"enabled": true
+		},
+		{
+			"key": "sys_id",
+			"value": "9dcdf152db252200a6a2b31be0b8f526",
+			"enabled": true
+		}
+	],
+	"name": "My Workspace Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2019-12-22T07:10:58.318Z",
+	"_postman_exported_using": "Postman/7.14.0"
+}
